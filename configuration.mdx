@@ -1,0 +1,90 @@
+---
+title: Configuration
+description: Configure Dmitry Nesterenko Documentation to match your project needs
+---
+
+## Basic Setup
+
+Getting started with configuration is straightforward. Follow these steps to set up your documentation environment.
+
+<Steps>
+  <Step title="Initialize" icon="play">
+    Create a new documentation project.
+    <CodeGroup tabs="CLI,Web">
+      ````bash
+      npx dndoc init my-project
+      ````
+      ````javascript
+      // Web initialization
+      const project = new DNDoc.Project({
+        name: 'my-project',
+        theme: 'default'
+      });
+      ````
+    </CodeGroup>
+  </Step>
+  <Step title="Configure" icon="settings">
+    Set up your project settings.
+  </Step>
+  <Step title="Deploy" icon="rocket">
+    Publish your documentation.
+  </Step>
+</Steps>
+
+## Advanced Options
+
+Customize your documentation with advanced configuration options.
+
+<Tabs>
+  <Tab title="Themes" icon="palette">
+    Choose from multiple themes to match your brand.
+  </Tab>
+  <Tab title="Plugins" icon="puzzle">
+    Extend functionality with plugins.
+  </Tab>
+</Tabs>
+
+<Callout kind="tip">Use the configuration file to store settings persistently.</Callout>
+
+## Configuration File
+
+The main configuration file controls all aspects of your documentation.
+
+```json
+{
+  "name": "My Project Docs",
+  "theme": "dark",
+  "plugins": ["search", "analytics"],
+  "api": {
+    "baseUrl": "https://api.example.com",
+    "timeout": 5000
+  }
+}
+```
+
+<Expandable title="Environment Variables" default-open="false">
+  Override settings using environment variables for different deployment environments.
+</Expandable>
+
+## Troubleshooting
+
+Common configuration issues and solutions.
+
+<ExpandableGroup>
+  <Expandable title="Build Errors" default-open="false">
+    Check your configuration file syntax.
+  </Expandable>
+  <Expandable title="Plugin Conflicts" default-open="false">
+    Disable conflicting plugins.
+  </Expandable>
+</ExpandableGroup>
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| theme | light | UI theme |
+| plugins | [] | Enabled plugins |
+| timeout | 30000 | Request timeout in ms |
+
+<Callout kind="info">Configuration changes require a rebuild to take effect.</Callout>
+
+This configuration guide helps you tailor the documentation platform to your specific needs.

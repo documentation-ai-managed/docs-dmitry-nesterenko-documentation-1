@@ -1,0 +1,91 @@
+---
+title: Webhooks
+description: Set up webhooks to automate workflows in Dmitry Nesterenko Documentation
+---
+
+## Webhook Overview
+
+Webhooks enable real-time notifications and automation by sending HTTP requests when events occur in your documentation.
+
+<Columns cols={2}>
+  <Card title="Event-Driven" icon="bell" href="#events">
+    Trigger actions based on documentation events.
+  </Card>
+  <Card title="Automation" icon="zap" href="#automation">
+    Automate deployments and integrations.
+  </Card>
+</Columns>
+
+## Setting Up Webhooks
+
+Configure webhooks to connect your documentation with external services.
+
+<Steps>
+  <Step title="Create Endpoint" icon="plus">
+    Set up a webhook endpoint in your application.
+  </Step>
+  <Step title="Register Webhook" icon="settings">
+    Add the webhook URL in your documentation settings.
+  </Step>
+  <Step title="Test" icon="check">
+    Verify the webhook is working correctly.
+  </Step>
+</Steps>
+
+## Supported Events
+
+Our platform supports various events that can trigger webhooks.
+
+<Tabs>
+  <Tab title="Document Events" icon="file-text">
+    Events related to document changes.
+  </Tab>
+  <Tab title="User Events" icon="users">
+    Events triggered by user actions.
+  </Tab>
+</Tabs>
+
+<Callout kind="info">All webhook payloads include event type and relevant data.</Callout>
+
+## Payload Structure
+
+Understand the structure of webhook payloads.
+
+```json
+{
+  "event": "document.updated",
+  "timestamp": "2024-01-15T10:30:00Z",
+  "data": {
+    "documentId": "doc_123",
+    "userId": "user_456",
+    "changes": ["title", "content"]
+  }
+}
+```
+
+<Expandable title="Security" default-open="false">
+  Use signature verification to ensure webhook authenticity.
+</Expandable>
+
+## Troubleshooting
+
+Common webhook issues and how to resolve them.
+
+<ExpandableGroup>
+  <Expandable title="Delivery Failures" default-open="false">
+    Check endpoint availability and response times.
+  </Expandable>
+  <Expandable title="Signature Verification" default-open="false">
+    Ensure proper signature validation.
+  </Expandable>
+</ExpandableGroup>
+
+| Issue | Symptom | Solution |
+|-------|---------|----------|
+| No deliveries | Webhook not triggering | Check event subscriptions |
+| Invalid signature | Security error | Verify signing key |
+| Timeout | Request fails | Increase timeout limit |
+
+<Callout kind="tip">Monitor webhook logs for debugging information.</Callout>
+
+Webhooks provide powerful automation capabilities for your documentation workflows.

@@ -1,0 +1,96 @@
+---
+title: Authentication
+description: Learn how to authenticate and secure access to Dmitry Nesterenko Documentation
+---
+
+## Authentication Methods
+
+Dmitry Nesterenko Documentation supports multiple authentication methods to ensure secure access to your documentation spaces. Choose the method that best fits your team's workflow and security requirements.
+
+<Tabs>
+  <Tab title="API Keys" icon="key">
+    Use API keys for programmatic access.
+    <Steps>
+      <Step title="Generate Key" icon="plus">
+        Create a new API key in your account settings.
+      </Step>
+      <Step title="Configure" icon="settings">
+        Add the key to your application headers.
+      </Step>
+      <Step title="Test" icon="check">
+        Verify authentication with a test request.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="OAuth" icon="shield">
+    Integrate with OAuth for user-based authentication.
+    <CodeGroup tabs="JavaScript,Python">
+      ````javascript
+      const auth = {
+        provider: 'oauth',
+        clientId: 'your_client_id',
+        scope: ['docs:read', 'docs:write']
+      };
+      ````
+      ````python
+      auth_config = {
+        'provider': 'oauth',
+        'client_id': 'your_client_id',
+        'scope': ['docs:read', 'docs:write']
+      }
+      ````
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+## Security Best Practices
+
+Implementing proper authentication is crucial for protecting your documentation. Follow these guidelines to maintain security.
+
+<Callout kind="danger">Never share API keys in public repositories or client-side code.</Callout>
+
+<Expandable title="Token Management" default-open="false">
+  Regularly rotate your tokens and revoke access for inactive users.
+</Expandable>
+
+## Troubleshooting Auth Issues
+
+Common authentication problems and their solutions.
+
+| Issue | Solution |
+|-------|----------|
+| Invalid API key | Check key format and expiration |
+| OAuth redirect error | Verify callback URLs |
+| Permission denied | Ensure correct scopes are set |
+
+<Callout kind="info">If issues persist, contact support with your error logs.</Callout>
+
+## Advanced Authentication
+
+For enterprise deployments, explore advanced authentication options.
+
+<ExpandableGroup>
+  <Expandable title="SSO Integration" default-open="false">
+    Set up single sign-on with your identity provider.
+  </Expandable>
+  <Expandable title="Role-Based Access" default-open="false">
+    Configure granular permissions for team members.
+  </Expandable>
+</ExpandableGroup>
+
+## Code Examples
+
+Here are practical examples of authentication in action.
+
+```javascript
+const authenticate = async (apiKey) => {
+  const response = await fetch('/api/docs', {
+    headers: {
+      'Authorization': `Bearer ${apiKey}`
+    }
+  });
+  return response.json();
+};
+```
+
+This authentication guide covers the essentials for securing your documentation access. Refer to the API reference for detailed endpoint documentation.
